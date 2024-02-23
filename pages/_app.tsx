@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					w="100%"
 					h="100vh"
 					position="relative"
-					background={`url('/images/background.jpg') fixed center/contain no-repeat`}
+					background={`url('/Images/background.jpg') fixed center/contain no-repeat`}
 				>
 					<Flex flexDirection="column" height="100%" bg={"#000000e3"}>
 						{route != "/" && <Nav />}
