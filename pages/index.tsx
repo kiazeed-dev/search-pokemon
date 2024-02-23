@@ -1,14 +1,10 @@
-import { Flex, Center, Input } from "@chakra-ui/react";
+import { Flex, Center, Input, Image, Stack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function Home() {
-	const [searchInput, setSearchInput] = useState<string>("");
 	const { replace } = useRouter();
-
-	useEffect(() => {
-		console.log(searchInput);
-	}, [searchInput]);
+	const [searchInput, setSearchInput] = useState<string>("");
 
 	const handlerChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchInput(e.target.value);
@@ -21,17 +17,30 @@ export default function Home() {
 	};
 
 	return (
-		<Flex padding={"2rem"} width={"100%"} height={"100%"}>
-			<Center width={"100%"} height={"100%"}>
-				<Flex w="30em">
-					<Input
-						onChange={handlerChangeInput}
-						onKeyDown={handlerkeyDown}
-						placeholder="Search here"
-						size={"lg"}
+		<Flex
+			padding={"2rem"}
+			width={"100%"}
+			height={"100%"}
+			justifyContent={"center"}
+		>
+			<Flex justifyContent={"center"} mt={"15em"}>
+				<Stack alignItems={"center"}>
+					<Image
+						objectFit={"contain"}
+						h="10em"
+						w="20em"
+						src="Images/logo.png"
 					/>
-				</Flex>
-			</Center>
+					<Flex w={{ base: "20em", md: "35em" }}>
+						<Input
+							onChange={handlerChangeInput}
+							onKeyDown={handlerkeyDown}
+							placeholder="Search here..."
+							size={"lg"}
+						/>
+					</Flex>
+				</Stack>
+			</Flex>
 		</Flex>
 	);
 }

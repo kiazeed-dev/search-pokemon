@@ -1,10 +1,9 @@
 export interface dataSearchType {
-	isLoading: boolean;
 	isError: boolean;
-	data: pokemon | string;
+	data: pokemonInfo | string;
 }
 
-export interface pokemon {
+export interface pokemonInfo {
 	id: string;
 	number: string;
 	name: string;
