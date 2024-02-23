@@ -29,7 +29,7 @@ export default function Home() {
 						objectFit={"contain"}
 						h="10em"
 						w="20em"
-						src="Images/logo.png"
+						src="/images/logo.png"
 					/>
 					<Flex w={{ base: "20em", md: "35em" }}>
 						<Input

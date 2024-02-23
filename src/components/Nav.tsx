@@ -17,7 +17,7 @@ export default function Nav() {
 								objectFit={"contain"}
 								h="5em"
 								w="12em"
-								src="Images/logo.png"
+								src="/images/logo.png"
 							/>
 						</Flex>
 					)}

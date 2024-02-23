@@ -64,7 +64,7 @@ export default function PokemonCard({
 														<Image
 															w={"2em"}
 															h={"2em"}
-															src={`Images/icons/${e}.svg`}
+															src={`/images/icons/${e.toLowerCase()}.svg`}
 														/>
 													</Tooltip>
 												)
@@ -164,7 +164,7 @@ export default function PokemonCard({
 														<Image
 															w={"2em"}
 															h={"2em"}
-															src={`Images/icons/${e}.svg`}
+															src={`/images/icons/${e.toLowerCase()}.svg`}
 														/>
 													</Tooltip>
 												)
@@ -193,7 +193,7 @@ export default function PokemonCard({
 														<Image
 															w={"2em"}
 															h={"2em"}
-															src={`Images/icons/${e}.svg`}
+															src={`/images/icons/${e.toLowerCase()}.svg`}
 														/>
 													</Tooltip>
 												)
