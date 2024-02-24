@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### Demo website
+https://search-pokemon-omega.vercel.app/
+
+## What I use in this Project
+- Pokemon API ( GraphQL ) [document](https://wayfair.github.io/dociql/)
+- Apollo Client ( comprehensive state management GraphQL ) [apollographql.com](https://www.apollographql.com/docs/react/)
+- Elements Pokemon Icons SVG [Github](https://github.com/duiker101/pokemon-type-svg-icons)
+- Chakra-UI [chakra-ui.com](https://chakra-ui.com/)
+
 ## Getting Started
 
 First, run the development server:
