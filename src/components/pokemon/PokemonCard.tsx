@@ -19,20 +19,33 @@ import {
 	Tr,
 	Icon,
 	Divider,
+	useDisclosure,
 } from "@chakra-ui/react";
 import { GiArmorDowngrade, GiArmorUpgrade } from "react-icons/gi";
-
+import PokemonAttacksModel from "./PokemonAttacksModal";
+import PokemonEvolutionDrawer from "./PokemonEvolutionDrawer";
 export default function PokemonCard({
 	pokemonData,
 }: {
 	pokemonData: pokemonInfo;
 }) {
+	const {
+		isOpen: isAttackOpen,
+		onOpen: onAttackOpen,
+		onClose: onAttackClose,
+	} = useDisclosure();
+	const {
+		isOpen: isEvoOpen,
+		onOpen: onEvoOpen,
+		onClose: onEvoClose,
+	} = useDisclosure();
 	const pokemon: pokemonInfo = pokemonData;
 	return (
 		<>
 			<Card
 				w={{ base: "300px", md: "900px" }}
 				direction={{ base: "column", sm: "row" }}
+				justifyContent={"center"}
 			>
 				{typeof pokemon === "string" ? (
 					<Text>{pokemon}</Text>
@@ -40,7 +53,7 @@ export default function PokemonCard({
 					<>
 						<Flex alignItems={"center"} p="1em">
 							<Image
-								objectFit="cover"
+								objectFit="contain"
 								boxSize={{ base: "300px", md: "100%" }}
 								src={pokemon.image}
 								alt="Caffe Latte"
@@ -52,7 +65,7 @@ export default function PokemonCard({
 								<Stack gap={"0.75em"}>
 									<Flex alignItems={"center"} gap={"0.5em"}>
 										<Heading size="lg">
-											{pokemon.name}
+											{`${pokemon.name} #${pokemon.number}`}
 										</Heading>
 										<Flex gap={"0.25em"}>
 											{pokemon.types.map(
@@ -212,10 +225,18 @@ export default function PokemonCard({
 									justifyContent={"center"}
 									w="100%"
 								>
-									<Button variant="solid" colorScheme="blue">
+									<Button
+										variant="solid"
+										colorScheme="blue"
+										onClick={onAttackOpen}
+									>
 										Pokemon Attacks
 									</Button>
-									<Button variant="solid" colorScheme="red">
+									<Button
+										variant="solid"
+										colorScheme="red"
+										onClick={onEvoOpen}
+									>
 										Pokemon Evolutions
 									</Button>
 								</Flex>
@@ -224,6 +245,18 @@ export default function PokemonCard({
 					</>
 				)}
 			</Card>
+			{/* Modal */}
+			<PokemonAttacksModel
+				pokemonID={pokemon.id}
+				openModal={isAttackOpen}
+				closeModal={onAttackClose}
+			/>
+			{/* Drawer */}
+			<PokemonEvolutionDrawer
+				pokemonID={pokemon.id}
+				openDrawer={isEvoOpen}
+				closeDrawer={onEvoClose}
+			/>
 		</>
 	);
 }
